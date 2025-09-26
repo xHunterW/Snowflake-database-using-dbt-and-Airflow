@@ -14,11 +14,15 @@ cd dbt-dag
 ```
 
 ### 2. Configure environment variables
+```bash
 cp .env.example .env
+```
 - Edit .env with actual values
 
 ### 3. Start Airflow locally using Astro CLI
+```bash
 astro dev start
+```
 The Airflow UI will be available at: http://localhost:8080
 Default credentials:
 User: admin
@@ -28,9 +32,11 @@ Password: admin
 
 This project expects an Airflow connection named snowflake_conn.
 Run this once (from your host machine) to register it inside the scheduler container:
+```bash
 astro dev bash scheduler -c \
 'airflow connections add snowflake_conn \
  --conn-uri="snowflake://${SNOWFLAKE_USER}:${SNOWFLAKE_PASSWORD}@${SNOWFLAKE_ACCOUNT}/${SNOWFLAKE_DATABASE}/${SNOWFLAKE_SCHEMA}?warehouse=${SNOWFLAKE_WAREHOUSE}&role=${SNOWFLAKE_ROLE}"'
+```
  
  ### 5. Trigger the dbt DAG
  In the Airflow UI:
@@ -39,7 +45,6 @@ astro dev bash scheduler -c \
 	3. Trigger it manually or wait for its daily schedule
 	
 ### Requirements
-
 Defined in requirements.txt:
 astronomer-cosmos>=1.10
 dbt-core==1.10.10
