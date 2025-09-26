@@ -1,0 +1,6 @@
+# Astro Runtime includes the following pre-installed providers packages: https://www.astronomer.io/docs/astro/runtime-image-architecture#provider-packages
+# Airflow 3 friendly pins
+apache-airflow-providers-snowflake
+astronomer-cosmos>=1.10
+dbt-core==1.10.10
+dbt-snowflake==1.10.0

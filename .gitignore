@@ -7,7 +7,7 @@ cat << 'EOF' > .gitignore
 # Python
 __pycache__/
 .venv/
-env/
+env
 *.pyc
 *.pyo
 
