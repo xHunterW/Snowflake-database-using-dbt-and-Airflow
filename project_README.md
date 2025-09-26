@@ -11,6 +11,7 @@ It includes:
 ```bash
 git clone https://github.com/<your-username>/dbt-dag.git
 cd dbt-dag
+```
 
 ### 2. Configure environment variables
 cp .env.example .env
