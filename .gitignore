@@ -1,11 +1,33 @@
-.git
-.env
+cat << 'EOF' > .gitignore
+# OS / editor junk
 .DS_Store
-airflow_settings.yaml
+.idea/
+.vscode/
+
+# Python
 __pycache__/
-astro
-.venv
-airflow-webserver.pid
-webserver_config.py
-airflow.cfg
-airflow.db
+.venv/
+env/
+*.pyc
+*.pyo
+
+# Airflow / Astro
+.airflow/
+.airflowignore
+.astro/
+logs/
+airflow_settings.yaml
+
+# dbt
+dags/data_pipeline/target/
+dags/data_pipeline/logs/
+dags/data_pipeline/dbt_packages/
+target/
+dbt_packages/
+logs/
+
+# Environment / secrets
+.env
+.env.*
+!*.example
+EOF
