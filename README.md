@@ -13,14 +13,41 @@ git clone https://github.com/<your-username>/dbt-dag.git
 cd dbt-dag
 ```
 
-### 2. Configure environment variables
+### Step 2. Prepare Snowflake (one-time setup by an accountadmin)
+Before running Airflow or dbt, log into Snowflake (as a user with ACCOUNTADMIN or equivalent privileges) and run:
+``` SQL
+-- Switch to accountadmin role
+USE ROLE ACCOUNTADMIN;
+
+-- Create compute warehouse
+CREATE WAREHOUSE IF NOT EXISTS dbt_wh
+  WITH WAREHOUSE_SIZE = 'X-SMALL'
+  AUTO_SUSPEND = 60
+  AUTO_RESUME = TRUE;
+
+-- Create database and role
+CREATE DATABASE IF NOT EXISTS dbt_db;
+CREATE ROLE IF NOT EXISTS dbt_role;
+
+-- Grant permissions
+GRANT USAGE ON WAREHOUSE dbt_wh TO ROLE dbt_role;
+GRANT ALL ON DATABASE dbt_db TO ROLE dbt_role;
+GRANT ROLE dbt_role TO USER <your_username>;
+
+-- Switch to dbt_role and create schema
+USE ROLE dbt_role;
+CREATE SCHEMA IF NOT EXISTS dbt_db.dbt_schema;
+```
+Replace <your_username> with your Snowflake user that Airflow/dbt will connect with.
+
+### 3. Configure environment variables
 ```bash
 cp .env.example .env
 ```
 - Edit .env with actual values.
 - Per the snowflake setup section, you should be using dbt_db, dbt_wh, dbt_role and dbt_schema.
 
-### 3. Start Airflow locally using Astro CLI
+### 4. Start Airflow locally using Astro CLI
 ```bash
 astro dev init
 astro dev start
@@ -32,7 +59,7 @@ Default credentials:
 User: admin
 Password: admin
 
-### 4. Create the Snowflake connection in Airflow
+### 5. Create the Snowflake connection in Airflow
 
 Once Airflow is running (astro dev start → http://localhost:8080
 ), you’ll need to add a Snowflake connection.
@@ -59,7 +86,7 @@ Click Save.
 
 Your DAG (dbt_dag.py) expects this connection to exist with the name snowflake_conn.
  
- ### 5. Trigger the dbt DAG
+ ### 6. Trigger the dbt DAG
  In the Airflow UI:
 1. Navigate to DAGs
 2. Enable dbt_dag
