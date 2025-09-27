@@ -45,7 +45,7 @@ Replace <your_username> with your Snowflake user that Airflow/dbt will connect w
 cp .env.example .env
 ```
 - Edit .env with actual values.
-- For the snowflake account line, include the full address (e.g., abc12345.us-east-1.snowflakecomputing.com)
+- For the snowflake account line, include the full address (e.g., https://abc12345.us-east-1.snowflakecomputing.com)
 - Per the snowflake setup section, you should be using dbt_db, dbt_schema, dbt_wh and dbt_role for database, schema, warehouse and role respectively.
 
 ### 4. Start Airflow locally using Astro CLI
@@ -68,7 +68,7 @@ Once Airflow is running (astro dev start → http://localhost:8080
 Open the Airflow UI → Admin > Connections → + (Add Connection).
 - Connection Id: snowflake_conn
 - Connection Type: Snowflake
-- Host: <your_snowflake_account>.snowflakecomputing.com (e.g., abc12345.us-east-1.snowflakecomputing.com)
+- Host: <your_snowflake_account> (e.g., abc12345.us-east-1)
 - Login: your Snowflake username
 - Password: your Snowflake password
 - Schema: dbt_schema
@@ -76,7 +76,7 @@ Open the Airflow UI → Admin > Connections → + (Add Connection).
 - In "Extra Field Json" input the following:
 ``` bash
 {
-  "account": "your_snowflake_account",
+  "account": "<your_snowflake_account> (same as Host field above)",
   "warehouse": "dbt_wh",
   "database": "dbt_db",
   "role": "dbt_role"
