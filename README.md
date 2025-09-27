@@ -9,8 +9,8 @@ It includes:
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/<your-username>/dbt-dag.git
-cd dbt-dag
+git clone https://github.com/<github_username>/Snowflake-database-using-dbt-and-Airflow.git
+cd Snowflake-database-using-dbt-and-Airflow
 ```
 
 ### Step 2. Prepare Snowflake (one-time setup by an accountadmin)
