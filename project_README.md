@@ -17,12 +17,16 @@ cd dbt-dag
 ```bash
 cp .env.example .env
 ```
-- Edit .env with actual values
+- Edit .env with actual values.
+- Per the snowflake setup section, you should be using dbt_db, dbt_wh, dbt_role and dbt_schema.
 
 ### 3. Start Airflow locally using Astro CLI
 ```bash
+astro dev init
 astro dev start
 ```
+Note: Docker will attempt to use port 5432; ensure this port is available before running 'astro dev start'.
+
 The Airflow UI will be available at: http://localhost:8080
 Default credentials:
 User: admin
@@ -30,13 +34,30 @@ Password: admin
 
 ### 4. Create the Snowflake connection in Airflow
 
-This project expects an Airflow connection named snowflake_conn.
-Run this once (from your host machine) to register it inside the scheduler container:
-```bash
-astro dev bash scheduler -c \
-'airflow connections add snowflake_conn \
- --conn-uri="snowflake://${SNOWFLAKE_USER}:${SNOWFLAKE_PASSWORD}@${SNOWFLAKE_ACCOUNT}/${SNOWFLAKE_DATABASE}/${SNOWFLAKE_SCHEMA}?warehouse=${SNOWFLAKE_WAREHOUSE}&role=${SNOWFLAKE_ROLE}"'
+Once Airflow is running (astro dev start → http://localhost:8080
+), you’ll need to add a Snowflake connection.
+
+Open the Airflow UI → Admin > Connections → + (Add Connection).
+Fill out the form:
+Connection Id: snowflake_conn
+Connection Type: Snowflake
+Host: <your_snowflake_account>.snowflakecomputing.com (e.g., abc12345.us-east-1.snowflakecomputing.com)
+Login: your Snowflake username
+Password: your Snowflake password
+Schema: dbt_schema
+Port: leave blank
+In "Extra Field Json" input the following:
+``` bash
+{
+  "account": "your_snowflake_account",
+  "warehouse": "dbt_wh",
+  "database": "dbt_db",
+  "role": "dbt_role",
+}
 ```
+Click Save.
+
+Your DAG (dbt_dag.py) expects this connection to exist with the name snowflake_conn.
  
  ### 5. Trigger the dbt DAG
  In the Airflow UI:
