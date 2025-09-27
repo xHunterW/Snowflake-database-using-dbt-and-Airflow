@@ -66,15 +66,14 @@ Once Airflow is running (astro dev start → http://localhost:8080
 ), you’ll need to add a Snowflake connection.
 
 Open the Airflow UI → Admin > Connections → + (Add Connection).
-Fill out the form:
-Connection Id: snowflake_conn
-Connection Type: Snowflake
-Host: <your_snowflake_account>.snowflakecomputing.com (e.g., abc12345.us-east-1.snowflakecomputing.com)
-Login: your Snowflake username
-Password: your Snowflake password
-Schema: dbt_schema
-Port: leave blank
-In "Extra Field Json" input the following:
+- Connection Id: snowflake_conn
+- Connection Type: Snowflake
+- Host: <your_snowflake_account>.snowflakecomputing.com (e.g., abc12345.us-east-1.snowflakecomputing.com)
+- Login: your Snowflake username
+- Password: your Snowflake password
+- Schema: dbt_schema
+- Port: leave blank
+- In "Extra Field Json" input the following:
 ``` bash
 {
   "account": "your_snowflake_account",
@@ -83,7 +82,7 @@ In "Extra Field Json" input the following:
   "role": "dbt_role",
 }
 ```
-Click Save.
+- Click Save.
 
 Your DAG (dbt_dag.py) expects this connection to exist with the name snowflake_conn.
  
