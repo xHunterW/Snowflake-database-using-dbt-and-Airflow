@@ -67,9 +67,10 @@ Your DAG (dbt_dag.py) expects this connection to exist with the name snowflake_c
 
 
 When the DAG runs successfully, you should see all tasks in **Airflow** marked green:
-![Successfully Run DAG](images/Successfully_Run_DAG.png)
+![Successfully_Run_DAG](images/Successfully_Run_DAG.png)
+
 And in **Snowflake**, the expected models and views will be materialized:
-![Correctly Populated Snowflake Tables](images/Correctly_Populated_Snowflake_Tables.png)
+![Correctly_Populated_Snowflake_Tables](images/Correctly_Populated_Snowflake_Tables.png)
 
 	
 ### Requirements
