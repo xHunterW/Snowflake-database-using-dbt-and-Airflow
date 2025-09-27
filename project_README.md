@@ -61,9 +61,9 @@ Your DAG (dbt_dag.py) expects this connection to exist with the name snowflake_c
  
  ### 5. Trigger the dbt DAG
  In the Airflow UI:
-	- 1. Navigate to DAGs
-	- 2. Enable dbt_dag
-	- 3. Trigger it manually or wait for its daily schedule
+1. Navigate to DAGs
+2. Enable dbt_dag
+3. Trigger it manually or wait for its daily schedule
 
 
 When the DAG runs successfully, you should see all tasks in **Airflow** marked green:
