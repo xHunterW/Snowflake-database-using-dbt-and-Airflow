@@ -1,6 +1,6 @@
 # Airflow + dbt + Snowflake (with Cosmos)
 
-This project demonstrates how to orchestrate a **dbt project on Snowflake** using **Apache Airflow** and the [Astronomer Cosmos](https://github.com/astronomer/astronomer-cosmos) library. The implementation leerages snowflakes built-in TPC-H dataset at a standard scale factor.
+This project demonstrates how to orchestrate a **dbt project on Snowflake** using **Apache Airflow** and the [Astronomer Cosmos](https://github.com/astronomer/astronomer-cosmos) library. This implementation leverages Snowflake's built-in TPC-H dataset at a standard scale factor.
 
 It includes:
 - A complete dbt project (`dags/data_pipeline/`) with models, macros, and tests
