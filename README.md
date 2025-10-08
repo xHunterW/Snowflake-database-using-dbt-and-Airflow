@@ -86,7 +86,7 @@ Open the Airflow UI → Admin > Connections → + (Add Connection).
 
 Your DAG (dbt_dag.py) expects this connection to exist with the name snowflake_conn.
  
- ### 6. Trigger the dbt DAG
+ ### 6. Trigger the dbt DAG to begin table buildout
  In the Airflow UI:
 1. Navigate to DAGs
 2. Enable dbt_dag
