@@ -14,7 +14,7 @@ cd Snowflake-database-using-dbt-and-Airflow
 ```
 
 ### Step 2. Prepare Snowflake (one-time setup by an accountadmin)
-Before running Airflow or dbt, log into Snowflake (as a user with ACCOUNTADMIN or equivalent privileges) and run:
+Before running Airflow or dbt, log into Snowflake (as a user with ACCOUNTADMIN or equivalent privileges) and run the following:
 ``` SQL
 -- Switch to accountadmin role
 USE ROLE ACCOUNTADMIN;
