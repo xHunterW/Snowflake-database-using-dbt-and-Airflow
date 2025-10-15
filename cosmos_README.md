@@ -37,7 +37,7 @@ Note: If you already have either of the above ports allocated, you can either [s
 Deploy Your Project to Astronomer
 =================================
 
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://www.astronomer.io/docs/astro/deploy-code/
+If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to the Astronomer documentation: https://www.astronomer.io/docs/astro/deploy-code/
 
 Contact
 =======
