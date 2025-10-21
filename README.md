@@ -13,7 +13,7 @@ git clone https://github.com/<github_username>/Snowflake-database-using-dbt-and-
 cd Snowflake-database-using-dbt-and-Airflow
 ```
 
-### Step 2. Prepare Snowflake (one-time setup by an accountadmin)
+### Step 2. Prepare Snowflake Environment (one-time setup by an accountadmin)
 Before running Airflow or dbt, log into Snowflake (as a user with ACCOUNTADMIN or equivalent privileges) and run the following:
 ``` SQL
 -- Switch to accountadmin role
