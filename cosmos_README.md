@@ -42,4 +42,4 @@ If you have an Astronomer account, pushing code to a Deployment on Astronomer is
 Contact
 =======
 
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
+The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support team.
