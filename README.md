@@ -5,7 +5,7 @@ This project demonstrates how to orchestrate a **dbt project on Snowflake** usin
 It includes:
 - A complete dbt project (`dags/data_pipeline/`) with models, macros, and unit tests
 - An Airflow DAG (`dags/dbt_dag.py`) that runs dbt commands using Cosmos
-- Dockerized setup with Astro CLI for local development
+- A Dockerized setup with Astro CLI for local development
 
 ### 1. Clone the repo
 ```bash
